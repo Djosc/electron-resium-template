@@ -1,8 +1,14 @@
 import React from 'react';
-import { Viewer } from 'resium';
+import { CzmlDataSource, Viewer } from 'resium';
+
+import { iss } from '../data/czml';
 
 function App() {
-	return <Viewer full />;
+	return (
+		<Viewer full>
+			<CzmlDataSource data={iss} />
+		</Viewer>
+	);
 }
 
 export default App;
