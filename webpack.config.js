@@ -91,6 +91,6 @@ module.exports = {
 		}),
 	],
 	mode: 'development',
-	devtool: 'eval',
+	devtool: 'inline-source-map',
 	target: 'electron-renderer',
 };
