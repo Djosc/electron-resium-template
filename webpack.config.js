@@ -67,17 +67,30 @@ module.exports = {
 		// Copy Cesium Assets, Widgets, and Workers to a static directory
 		new CopyWebpackPlugin({
 			patterns: [
-				{ from: path.join(cesiumSource, cesiumWorkers), to: 'Workers' },
-				{ from: path.join(cesiumSource, 'Assets'), to: 'Assets' },
-				{ from: path.join(cesiumSource, 'Widgets'), to: 'Widgets' },
-				// { from: path.join(__dirname, 'src', 'data'), to: 'Data' },
+				{
+					from: path.join(cesiumSource, cesiumWorkers),
+					to: 'Workers',
+				},
+				{
+					from: path.join(cesiumSource, 'Assets'),
+					to: 'Assets',
+				},
+				{
+					from: path.join(cesiumSource, 'Widgets'),
+					to: 'Widgets',
+				},
+				{
+					from: path.join(cesiumSource, 'ThirdParty'),
+					to: 'ThirdParty',
+				},
 			],
 		}),
 		new webpack.DefinePlugin({
 			// Define relative base path in cesium for loading assets
-			CESIUM_BASE_URL: JSON.stringify(''),
+			CESIUM_BASE_URL: JSON.stringify('./'),
 		}),
 	],
 	mode: 'development',
-	devtool: 'inline-source-map',
+	devtool: 'eval',
+	target: 'electron-renderer',
 };

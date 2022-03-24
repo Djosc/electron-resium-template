@@ -1,11 +1,8 @@
 import React from 'react';
+import { Viewer } from 'resium';
 
 function App() {
-	return (
-		<div>
-			<h1>Hello world</h1>
-		</div>
-	);
+	return <Viewer full />;
 }
 
 export default App;
